@@ -6,14 +6,9 @@ use App\Vendor\Validator\Validator;
 
 class FileValidator extends Validator
 {
-    private function fileValidate($parameterName) {
-
-        $this->issetFile($parameterName);
-    }
-
     public function validate()
     {
-        $this->fileValidate('films');
+        $this->checkFileError('films');
 
         return $this->error;
     }

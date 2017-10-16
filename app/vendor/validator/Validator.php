@@ -52,12 +52,12 @@ abstract class Validator
         }
     }
 
-    protected function issetFile($parameterName) {
+    protected function checkFileError($parameterName) {
 
         if (isset($this->request[$parameterName]) && $this->request[$parameterName]['error'] == 0) {
             return true;
         } else {
-            $this->error->push($parameterName, "The {$parameterName} file is require.");
+            $this->error->push($parameterName, "File error.");
             return false;
         }
     }

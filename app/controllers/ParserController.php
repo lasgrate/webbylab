@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Vendor\Controller;
 use App\Validators\FileValidator;
 use App\Models\Film;
+use App\Vendor\Link;
 
 class ParserController extends Controller
 {
@@ -15,6 +16,10 @@ class ParserController extends Controller
 
     public function index()
     {
+        if (empty($this->request->files)) {
+            $this->response->redirect(Link::getLink());
+        }
+
         $this->storage['errors'] = (new FileValidator($this->request))->validate();
 
         if ($this->storage['errors']->hasErrors()) {
@@ -38,7 +43,7 @@ class ParserController extends Controller
 
         (new Film($this->registry))->saveMany($films);
 
-        return (new IndexController($this->registry, $this->storage))->index();
+        $this->response->redirect(Link::getLink());
     }
 
     public static function getPattern()
