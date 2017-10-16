@@ -22,6 +22,6 @@ spl_autoload_register(function ($fullClass) {
     if (file_exists($file)) {
         include_once $file;
     } else {
-        throw new \App\Exceptions\PageNotFoundException(404);
+        throw new \App\Exceptions\ResponseException(404);
     }
 });

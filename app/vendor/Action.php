@@ -2,7 +2,7 @@
 
 namespace App\Vendor;
 
-use App\Exceptions\PageNotFoundException;
+use App\Exceptions\ResponseException;
 
 class Action
 {
@@ -45,17 +45,15 @@ class Action
             $controller = new $controllerClassName($this->registry);
 
             if (!method_exists($controller, $this->action)) {
-                throw new PageNotFoundException(404);
+                throw new ResponseException('Page Not Found', 404);
             } else {
-
-                $output = $controller->{$this->action}();
+                $controller->{$this->action}();
             }
 
-        } catch (\Exception $e) {
-            $output = (new View($e->getViewName()))->render();
+        } catch (ResponseException $e) {
+            $this->registry->get('response')->setOutput($e->getResponse());
         }
 
-        $this->registry->get('response')->setOutput($output);
         $this->registry->get('response')->output();
     }
 

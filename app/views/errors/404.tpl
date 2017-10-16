@@ -24,8 +24,8 @@
 </head>
 <body>
 <div class="page_not_found__wrapper">
-    <p class="e_404">404</p>
-    <p>Page not found</p>
+    <p class="e_404"><?= $code ?></p>
+    <p><?= $message ?></p>
 </div>
 </body>
 </html>

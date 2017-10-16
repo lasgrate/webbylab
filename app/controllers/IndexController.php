@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Validators\FilmValidator;
 use App\Vendor\View;
 use App\Vendor\Controller;
-use App\Vendor\Link;
 use App\Models\Film;
 use App\Vendor\Validator\ErrorValidator;
 
@@ -78,7 +77,7 @@ class IndexController extends Controller
 
         $film->deleteRecord($this->request->id);
 
-        $this->response->redirect(Link::getLink());
+        return $this->getList();
     }
 
     private function getForm()
