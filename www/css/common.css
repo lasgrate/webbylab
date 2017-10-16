@@ -138,14 +138,18 @@ footer, header {
     margin-left: 15px;
 }
 
-.link-wrapper a, .label-wrapper label {
+.link-wrapper a {
     color: #333;
     text-decoration: none;
 }
 
-.action-wrapper input:hover {
+.action-wrapper input:not(input[type=file]):hover {
     background: #333;
     color: #fff;
+}
+
+input[type=file] {
+    padding: 2px;
 }
 
 .label-wrapper:hover label {

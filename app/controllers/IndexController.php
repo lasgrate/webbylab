@@ -84,7 +84,9 @@ class IndexController extends Controller
     {
         $this->storage['filmFormats'] = Film::getFilmFormats();
 
-        return (new View('form.tpl', $this->storage))->render();
+        $view = new View('form.tpl', $this->storage);
+
+        $this->response->setOutput($view->render());
     }
 
     private function getList()
@@ -93,6 +95,8 @@ class IndexController extends Controller
 
         $this->storage['films'] = $film->getAllFilms();
 
-        return (new View('index.tpl', $this->storage))->render();
+        $view = new View('index.tpl', $this->storage);
+
+        $this->response->setOutput($view->render());
     }
 }

@@ -68,10 +68,7 @@
                       enctype="multipart/form-data">
 
                     <div class="action-wrapper">
-                        <div class="label-wrapper">
-                            <label for="file">Choose file</label>
-                        </div>
-                        <input type="file" name="films" id="file" hidden>
+                        <input type="file" name="films" id="file">
                         <input type="submit" value="Load">
                     </div>
                     <?php if ($errors->hasError('films')) { ?>
