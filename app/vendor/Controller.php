@@ -2,8 +2,6 @@
 
 namespace App\Vendor;
 
-use App\Vendor\Validator\ErrorValidator;
-
 class Controller
 {
     /**
