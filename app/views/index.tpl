@@ -63,7 +63,7 @@
                 <div class="list-wrapper__empty">There are no films yet.</div>
             <?php } ?>
             <div class="list-wrapper__file">
-                <form action="<?= \App\Vendor\Link::getLink('index', 'parser') ?>"
+                <form action="<?= \App\Vendor\Link::getLink('parser') ?>"
                       method="post"
                       enctype="multipart/form-data">
 

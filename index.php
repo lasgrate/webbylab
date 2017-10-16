@@ -28,4 +28,4 @@ $registry->set('db', $db);
 
 $action = new \App\Vendor\Action($registry);
 
-$output = $action->execute();
+$action->execute();

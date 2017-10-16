@@ -2,6 +2,8 @@
 
 namespace App\Vendor;
 
+use App\Vendor\Validator\ErrorValidator;
+
 class Controller
 {
     /**
@@ -9,11 +11,18 @@ class Controller
      */
     protected $registry;
 
+    /**
+     * Controller storage.
+     *
+     * @var
+     */
     protected $storage;
 
-    public function __construct(Registry $registry)
+    public function __construct(Registry $registry, $storage = [])
     {
         $this->registry = $registry;
+        $this->storage = $storage;
+        $this->beforeAction();
     }
 
     /**
@@ -40,8 +49,6 @@ class Controller
 
     /**
      * Pre action method.
-     *
-     * @param $actionName
      */
-    public function preAction($actionName) {}
+    public function beforeAction() {}
 }

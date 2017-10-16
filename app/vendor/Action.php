@@ -36,12 +36,10 @@ class Action
 
     /**
      * Execute relevant controller and action
-     *
-     * @return mixed
      */
     public function execute()
     {
-        $controllerClassName = 'App\Controller\\' . $this->controller;
+        $controllerClassName = 'App\Controllers\\' . $this->controller;
 
         try {
             $controller = new $controllerClassName($this->registry);
@@ -49,7 +47,7 @@ class Action
             if (!method_exists($controller, $this->action)) {
                 throw new PageNotFoundException(404);
             } else {
-                $this->preAction($controller);
+
                 $output = $controller->{$this->action}();
             }
 
@@ -87,14 +85,5 @@ class Action
         } else {
             return DEFAULT_ACTION . ACTION_POSTFIX;
         }
-    }
-
-    /**
-     * Execute pre action.
-     *
-     * @param $controller
-     */
-    public function preAction($controller) {
-        $controller->preAction($this->action);
     }
 }
