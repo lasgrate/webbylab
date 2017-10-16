@@ -53,7 +53,7 @@ class Action
                 $output = $controller->{$this->action}();
             }
 
-        } catch (PageNotFoundException $e) {
+        } catch (\Exception $e) {
             $output = (new View($e->getViewName()))->render();
         }
 
