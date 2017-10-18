@@ -16,19 +16,19 @@ class IndexController extends Controller
         $this->storage['footer'] = (new FooterController($this->registry))->index();
         $this->storage['request'] = $this->request;
 
-        if (!($this->storage['errors'] instanceof ErrorValidator)) {
+        if (!isset($this->storage['errors'])) {
             $this->storage['errors'] = new ErrorValidator();
         }
     }
 
     public function index()
     {
-        return $this->getList();
+        $this->getList();
     }
 
     public function create()
     {
-        return $this->getForm();
+        $this->getForm();
     }
 
     public function store()
@@ -42,7 +42,7 @@ class IndexController extends Controller
         $this->storage['film'] = new Film($this->registry);
         $this->storage['film']->newRecord();
 
-        return $this->getList();
+        $this->getList();
     }
 
     public function edit()
@@ -51,7 +51,7 @@ class IndexController extends Controller
 
         $this->storage['film'] = $film->getRecord($this->request->id);
 
-        return $this->getForm();
+        $this->getForm();
     }
 
     public function update()
@@ -68,7 +68,7 @@ class IndexController extends Controller
 
         $film->updateRecord($this->request->id);
 
-        return $this->getList();
+        $this->getList();
     }
 
     public function delete()
@@ -77,7 +77,7 @@ class IndexController extends Controller
 
         $film->deleteRecord($this->request->id);
 
-        return $this->getList();
+        $this->getList();
     }
 
     private function getForm()

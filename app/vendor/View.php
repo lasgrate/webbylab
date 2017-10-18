@@ -20,7 +20,7 @@ class View
 
     public function __construct($template, $data = [])
     {
-        $this->template = APP_DIR . 'views/' . $template;
+        $this->template = WWW_DIR . 'views/' . $template;
         $this->data = $data;
     }
 

@@ -29,7 +29,7 @@ final class Registry
      * Put an object into the storage.
      *
      * @param $key
-     * @return mixed|null
+     * @param $value
      */
     public function set($key, $value)
     {

@@ -11,4 +11,6 @@
 При GET запросе вида index.php?controller={controllerName}&action={actionName} будет вызван метод ActionName в контроллере {controllerName}Controller,
 который находиться в /app/controllers. controllerName и actionName должны бить прописаны в нижнем регистре.
 
+
 При запуске приложения нужно создать файл /config.php по примеру файла /config-example.php.
+В файле /webbylab.sql находиться дамп базы.
