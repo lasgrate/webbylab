@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Жов 18 2017 р., 16:03
+-- Час створення: Жов 18 2017 р., 16:34
 -- Версія сервера: 5.6.37
 -- Версія PHP: 5.5.38
 
@@ -35,3 +35,10 @@ CREATE TABLE `films` (
   `format` varchar(255) NOT NULL,
   `actors` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `films`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `films`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;COMMIT;
+  
