@@ -22,7 +22,6 @@ $registry->set('request', $request);
 
 // Response
 $response = new \App\Vendor\Response();
-$response->addHeader('Content-Type: text/html; charset=utf-8');
 $registry->set('response', $response);
 
 // DB
