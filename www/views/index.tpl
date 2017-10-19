@@ -3,21 +3,21 @@
     <div class="row">
         <div class="list-wrapper">
             <div class="action-wrapper">
-                <div class="link-wrapper">
-                    <a href="<?php echo App\Vendor\Link::getLink('index', 'create') ?>">Add film</a>
-                </div>
+                <a class="link-wrapper" href="<?php echo App\Vendor\Link::getLink('index', 'create') ?>">Add film</a>
             </div>
             <form method="post"
                   action="<?= \App\Vendor\Link::getLink() ?>">
                 <div class="list-wrapper__search">
                     <div class="form-group">
                         <input type="text" name="search_name" placeholder="Search name"
-                               value="<?php if (!is_null($request->search_name)) echo $request->search_name;echo ''; ?>"
+                               value="<?php if (!is_null($request->search_name)) echo $request->search_name;
+                               echo ''; ?>"
                                id="search_name">
                     </div>
                     <div class="form-group">
                         <input type="text" name="search_actor" placeholder="Search actor"
-                               value="<?php if (!is_null($request->search_name)) echo $request->search_actor;echo ''; ?>"
+                               value="<?php if (!is_null($request->search_name)) echo $request->search_actor;
+                               echo ''; ?>"
                                id="search_actor">
                     </div>
                     <div class="action-wrapper">
@@ -51,9 +51,8 @@
                             <td><?php echo $film['name'] ?></td>
                             <td><?php echo $film['year'] ?></td>
                             <td>
-                                <div class="link-wrapper">
-                                    <a href="<?php echo App\Vendor\Link::getLink('index', 'edit', ['id' => $film['id']]) ?>">Edit</a>
-                                </div>
+                                <a class="link-wrapper"
+                                   href="<?php echo App\Vendor\Link::getLink('index', 'edit', ['id' => $film['id']]) ?>">Edit</a>
                             </td>
                         </tr>
                     <?php } ?>

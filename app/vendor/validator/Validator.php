@@ -113,7 +113,7 @@ abstract class Validator
     }
 
     /**
-     * Check if $parameterName less than $maxSize and larger than $minSize.
+     * Check if $parameterName (string) less than $maxSize and larger than $minSize.
      *
      * @param $parameterName
      * @param $minSize
@@ -126,6 +126,24 @@ abstract class Validator
             return true;
         } else {
             $this->error->push($parameterName, "The {$parameterName} size must be between {$minSize} and {$maxSize} maximum size.");
+            return false;
+        }
+    }
+
+    /**
+     * Check if $parameterName (numeric) less than $maxSize and larger than $minSize.
+     *
+     * @param string $parameterName
+     * @param int $min
+     * @param int $max
+     * @return bool
+     */
+    protected function betweenNumeric($parameterName, $min, $max)
+    {
+        if (($this->request[$parameterName] <= $max) && ($this->request[$parameterName] >= $min)) {
+            return true;
+        } else {
+            $this->error->push($parameterName, "The {$parameterName} must be between {$min} and {$max}.");
             return false;
         }
     }

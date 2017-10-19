@@ -34,7 +34,7 @@ CREATE TABLE `films` (
   `year` varchar(4) NOT NULL,
   `format` varchar(255) NOT NULL,
   `actors` tinytext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
 
 ALTER TABLE `films`
   ADD PRIMARY KEY (`id`);

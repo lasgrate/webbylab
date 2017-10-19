@@ -3,6 +3,7 @@
 namespace App\Validators;
 
 use App\Vendor\Validator\Validator;
+use App\Models\Film;
 
 class FilmValidator extends Validator
 {
@@ -23,13 +24,15 @@ class FilmValidator extends Validator
             $this->isString($parameterName);
 
             $this->isDateTimeFormat($parameterName, 'Y');
+
+            $this->betweenNumeric($parameterName, 1888, 2020);
         }
     }
 
     private function formatValidate($parameterName)
     {
         if ($this->issetParameter($parameterName)) {
-            $this->isIn($parameterName, \App\Models\Film::getFilmFormats());
+            $this->isIn($parameterName, Film::getFilmFormats());
         }
     }
 

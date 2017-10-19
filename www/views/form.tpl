@@ -5,9 +5,7 @@
             <form action="<?= \App\Vendor\Link::getLink('index', empty($film) ? 'store' : 'update', empty($film) ? [] : ['id' => $film['id']]) ?>"
                   class="create-wrapper__form" method="post">
                 <div class="action-wrapper">
-                    <div class="link-wrapper">
-                        <a href="<?= \App\Vendor\Link::getLink() ?>">Back</a>
-                    </div>
+                    <a class="link-wrapper" href="<?= \App\Vendor\Link::getLink() ?>">Back</a>
                 </div>
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Film name"
@@ -66,10 +64,8 @@
                     </div>
                 <?php } else { ?>
                     <div class="action-wrapper">
-                        <div class="link-wrapper">
-                            <a onclick="if (!confirm('Are you sure?')) return false;"
+                            <a class="link-wrapper" onclick="if (!confirm('Are you sure?')) return false;"
                                href="<?= \App\Vendor\Link::getLink('index', 'delete', ['id' => $film['id']]) ?>">Delete</a>
-                        </div>
                         <input type="submit" value="Update">
                     </div>
                 <?php } ?>
