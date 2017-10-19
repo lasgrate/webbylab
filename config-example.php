@@ -1,6 +1,7 @@
 <?php
 
 define('APP_DIR', __DIR__ . '/app/');
+define('WWW_DIR', __DIR__ . '/www/');
 
 define('CONTROLLER_POSTFIX', 'Controller');
 define('ACTION_POSTFIX', '');
