@@ -5,7 +5,8 @@
  */
 spl_autoload_register(function ($fullClass) {
 
-    $class = array_pop(explode('\\', $fullClass));
+    $fullClassExploded = explode('\\', $fullClass);
+    $class = array_pop($fullClassExploded);
 
     // Check if $class belongs to controllers
     if (substr_count($class, 'Controller') !== 1) {
@@ -18,10 +19,9 @@ spl_autoload_register(function ($fullClass) {
     $file = $base_dir . $class . '.php';
 
     // if the file exists, require it
-
     if (file_exists($file)) {
         include_once $file;
     } else {
-        throw new \App\Exceptions\ResponseException(404);
+        throw new \App\Exceptions\ResponseException('Page Not Found', 404);
     }
 });
