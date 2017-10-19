@@ -21,8 +21,6 @@ class Action
     private $action;
 
     /**
-     *
-     *
      * @var \App\Vendor\Registry
      */
     private $registry;
