@@ -148,7 +148,7 @@ footer, header {
     text-decoration: none;
 }
 
-.action-wrapper input:hover {
+.action-wrapper :not(input[type=file]) input:hover {
     background: #333;
     color: #fff;
 }
